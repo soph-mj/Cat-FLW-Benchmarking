@@ -30,11 +30,7 @@ def main(out_dir):
         sys.exit(1)
 
     print(
-        "\nNEXT STEP: inspect the extracted folder structure and check "
-        "annotation format (likely a CSV or JSON with 48 landmark coordinates "
-        "per image). Update `catflw_dataset.py`'s `load_annotations()` to match "
-        "whatever the actual file structure/format turns out to be -- dataset "
-        "annotation formats sometimes differ slightly from their paper description."
+        " "
     )
 
 
