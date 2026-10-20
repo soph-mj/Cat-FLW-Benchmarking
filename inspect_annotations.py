@@ -1,11 +1,4 @@
-"""
-inspect_annotations.py
 
-Run this AFTER downloading CatFLW (download_catflw.py) to see exactly what
-format the real annotation file is in. This tells you what to change in
-load_annotations() inside catflw_dataset.py.
-
-"""
 
 import argparse
 import json
