@@ -59,8 +59,5 @@ if __name__ == "__main__":
         inspect_file(args.file)
     else:
         print(
-            "\nNEXT STEP: find the annotation file (likely .json or .csv) in the "
-            "listing above, then re-run with:\n"
-            f"  python inspect_annotations.py --data_dir {args.data_dir} --file <path_to_annotation_file>\n"
-            "Paste the output back if you want help adapting load_annotations()."
+            " "
         )
