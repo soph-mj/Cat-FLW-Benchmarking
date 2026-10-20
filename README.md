@@ -2,7 +2,7 @@
 
 This project investigates 48-point cat facial landmark detection using three lightweight convolutional neural networks: ShuffleNetV2, EfficientNetB0, and MobileNetV3. It compares coordinate regression and heatmap regression, with additional ablation and repeated-seed experiments. The project was developed in Google Colab using PyTorch.
 
-The my final report contains the experimental results and discussion. This repository provides the code and configurations used to produce them.
+The final report contains the experimental results and discussion. This repository provides the code and configurations used to produce them.
 
 ## Project files
 
