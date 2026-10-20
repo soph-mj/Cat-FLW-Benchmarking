@@ -1,8 +1,8 @@
 # CatFLW Facial Landmark Detection
 
-This project investigates **48-point cat facial landmark detection** using three lightweight convolutional neural networks: ShuffleNetV2, EfficientNetB0, and MobileNetV3. It compares **coordinate regression** and **heatmap regression**, with additional ablation and repeated-seed experiments. The project was developed in Google Colab using PyTorch.
+This project investigates 48-point cat facial landmark detection using three lightweight convolutional neural networks: ShuffleNetV2, EfficientNetB0, and MobileNetV3. It compares coordinate regression and heatmap regression, with additional ablation and repeated-seed experiments. The project was developed in Google Colab using PyTorch.
 
-The accompanying report contains the experimental results and discussion. This repository provides the code and configurations used to produce them.
+The my final report contains the experimental results and discussion. This repository provides the code and configurations used to produce them.
 
 ## Project files
 
@@ -21,11 +21,11 @@ The accompanying report contains the experimental results and discussion. This r
 ## Setup and data preparation
 
 1. Open `CatFLW.ipynb` in **Google Colab** and select a GPU runtime if available.
-2. In the first setup cell, replace `YOUR_USERNAME` with the owner of this GitHub repository and check that the repository name is correct. The cell clones the project and installs its dependencies from `requirements.txt` (plus SciPy for the statistical analysis).
+2. The first setup cell clones the project and installs its dependencies from `requirements.txt`.
 3. Run the dataset setup cells to download [CatFLW from Kaggle](https://www.kaggle.com/datasets/georgemartvel/catflw). Kaggle authentication may be required.
 4. Run the remaining cells for the experiments you wish to reproduce.
 
-The dataset is downloaded into the temporary Colab environment and **is not included in this repository**. Do not upload Kaggle credentials or API keys.
+The dataset is downloaded into the temporary Colab environment and **is not included in this repository**.
 
 ## Training and evaluation
 
@@ -42,19 +42,19 @@ python train.py \
   --lr 1e-4
 ```
 
-`train.py` splits the data into training, validation, and test sets, trains the selected model, saves the checkpoint with the best validation NRMSE, and reports **test NRMSE** after training. It also saves sample prediction images. There is no separate evaluation command required for this workflow.
+`train.py` splits the data into training, validation, and test sets, trains the selected model, saves the checkpoint with the best validation NRMSE, and reports test NRMSE after training. It also saves sample prediction images. There is no separate evaluation command required for this workflow.
 
 ## Configurations used in the report
 
-All main experiments use **30 epochs**, **learning rate `1e-4`**, and the default **seed `0`**, unless otherwise specified.
+All main experiments use 30 epochs, learning rate `1e-4`, and the default seed `0`, unless otherwise specified.
 
 | Backbone | Coordinate batch size | Heatmap batch size |
 |---|---:|---:|
-| ShuffleNetV2 (`shufflenet_v2_x1_0`) | 16 | 16; additional run at 8 |
+| ShuffleNetV2 (`shufflenet_v2_x1_0`) | 16 | 16; additional run at 8 was to diagnose issues with heatmaps|
 | EfficientNetB0 (`efficientnet_b0`) | 16 | 8 |
 | MobileNetV3 (`mobilenetv3_small_100`) | 16 | 8 |
 
-The MobileNetV3 coordinate-regression ablations use `--no-alignment`, `--edge-filter`, or `--mse-loss`. The repeated runs use seeds **1, 2, 3, and 110**, alongside the main seed-0 run. Each experiment's output directory and settings are recorded in the notebook.
+The MobileNetV3 coordinate-regression ablations use `--no-alignment`, `--edge-filter`, or `--mse-loss`. The repeated runs use seeds 1, 2, 3, and 110, alongside the main seed-0 run. Each experiment's output directory and settings are recorded in the notebook.
 
 ## Notes
 
